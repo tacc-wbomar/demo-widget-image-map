@@ -4,12 +4,12 @@
 
 /* STRUCTURE */
 
-/* Size the counters and actions */
+/* Size the item counters and actions */
 .c-image-map--has-toggle-counters .c-image-map__item-toggle::before {
     --size: var(--toggle-shape-size);
 }
-.c-image-map--has-caption-counters .c-image-map__item-close,
-.c-image-map--has-caption-counters .c-image-map__item-caption::before {
+.c-image-map--has-item-counters .c-image-map__item-close,
+.c-image-map--has-item-counters .c-image-map__item::before {
     --size: calc( var(--toggle-shape-size) / 1.9 );
 
     width: var(--size);
@@ -20,15 +20,21 @@
     margin: 1em auto 0 auto;
 }
 
-/* Position the caption counters */
+/* Position the item counters */
 /* FAQ: Vertically center, and horizontally align atop caption's left border */
-.c-image-map--has-caption-counters .c-image-map__item-caption::before {
+.c-image-map--has-item-counters .c-image-map__item::before {
     display: block;
     position: absolute;
-    left: 0;
+    z-index: 1;
+    left: var(--caption-offset);
     top: 50%;
     margin-left: calc( -1 * var(--size) / 2 );
-    margin-top: calc( -1 * var(--size) / 2 );
+}
+
+/* Poition focused items atop others */
+.c-image-map__item:focus,
+.c-image-map__item:focus-within {
+    z-index: 1;
 }
 
 
@@ -48,13 +54,19 @@
 
 /* Customize properties */
 .c-image-map {
+    --border--thin: 2px;
+    --border--normal: 3px;
+    --border--thick: 4px;
     --accent-color--primary: rgba(0, 0, 0);
     --accent-color--secondary: rgba(0, 0, 0, 0.5);
 }
 
-/* Skin the toggle, counters, and actions */
+
+
+/* SKIN: Toggle, Counters, Actions */
+
 .c-image-map__item-toggle,
-.c-image-map--has-caption-counters .c-image-map__item-caption::before,
+.c-image-map--has-item-counters .c-image-map__item::before,
 .c-image-map__item-close {
     /* Align any text vertically and horizontally */
     display: flex;
@@ -65,23 +77,30 @@
     border-radius: 50%;
 }
 .c-image-map__item-toggle,
-.c-image-map--has-caption-counters .c-image-map__item-caption::before {
-    border: 4px solid var(--accent-color--primary);
+.c-image-map--has-item-counters .c-image-map__item::before {
+    border-style: solid;
+    border-color: var(--accent-color--primary);
     background-color: white;
 
     color: var(--accent-color--primary);
+}
+.c-image-map--has-item-counters .c-image-map__item::before {
+    border-width: var(--border--normal);
+}
+.c-image-map__item-toggle {
+    border-width: var(--border--thick);
 }
 .c-image-map__item-toggle:hover {
     color: var(--accent-color--primary);
     text-decoration: none;
 }
 .c-image-map--has-toggle-counters .c-image-map__item-toggle::before,
-.c-image-map--has-caption-counters .c-image-map__item-caption::before,
+.c-image-map--has-item-counters .c-image-map__item::before,
 .c-image-map__item-close::before {
     font-family: kepler-std-subhead, serif;
 }
 .c-image-map--has-toggle-counters .c-image-map__item-toggle::before,
-.c-image-map--has-caption-counters .c-image-map__item-caption::before {
+.c-image-map--has-item-counters .c-image-map__item::before {
     font-size: calc( var(--size) * 0.65);
 }
 .c-image-map__item-close::before {
@@ -102,8 +121,12 @@
     text-decoration: none;
 }
 
-/* Define when toggle should not have transparency */
-.c-image-map__item-toggle{
+
+
+/* SKIN: Toggle Transparency */
+
+/* Define when toggle should NOT have transparency */
+.c-image-map__item-toggle {
     opacity: 0.5;
 }
 /* FAQ: Toggle of item on hover */
@@ -119,36 +142,66 @@
     opacity: 1;
 }
 
-/* Animate toggle and caption counter hover state */
+
+
+/* SKIN: Toggle & Counter Animation */
+
+/* Animate toggle and item counter hover state */
 .c-image-map__item-toggle,
-.c-image-map--has-caption-counters .c-image-map__item-toggle ~ .c-image-map__item-caption::before {
+.c-image-map--has-item-counters .c-image-map__item::before {
     transform: scale(1);
 
     transition-duration: 0.25s;
     transition-property: all;
 }
-/* Scale toggle and caption counter on hover, provided its item is not already "active" */
+/* Scale toggle and item counter on hover, provided its item is not already "active" */
 .c-image-map__item:hover .c-image-map__item-toggle,
-.c-image-map--has-caption-counters .c-image-map__item:hover .c-image-map__item-caption::before {
+.c-image-map--has-item-counters .c-image-map__item:hover::before {
     transform: scale(1.25);
 }
 
-/* Skin the caption */
+
+
+/* SKIN: Caption */
+
 .c-image-map__item-caption {
+    --space--desc-top: 1em;
+    --space--title-bottom: 0.5em;
+
     background-color: white;
-    border: 3px solid var(--accent-color--primary);
+    border: var(--border--normal) solid var(--accent-color--primary);
 }
 .c-image-map__item-title {
     display: block;
-
-    padding-bottom: 0.5em;
-
-    border-bottom: 2px solid var(--accent-color--secondary);
+    padding-bottom: var(--space--title-bottom);
 
     /* TODO: Use font variable(s) */
     /* TODO: Use `rem` when site sets base font */
     /* font: bold normal 2em benton-sans, serif; */
+    font-weight: bold;
 }
 .c-image-map__item-desc {
-    margin: 1em 0 0; /* overwrite Bootstrap or browser */
+    margin: var(--space--desc-top) 0 0; /* overwrite Bootstrap or browser */
+}
+
+
+
+/* SKIN: Placeholder Text */
+
+/* Decoration only for titles that are NOT collapsing content */
+.c-image-map__item-title:not(summary),
+details[open] > summary.c-image-map__item-title {
+    border-bottom: var(--border--thin) solid var(--accent-color--secondary);
+}
+/* Titles that collapse content get placeholder content and fake border */
+details:not([open]) > summary.c-image-map__item-title::after {
+    /* Placeholder content */
+    display: block;
+    content: attr(data-placeholder-text);
+    font-weight: normal;
+
+    /* Fake border */
+    margin-top: var(--space--title-bottom);
+    padding-top: var(--space--desc-top);
+    border-top: var(--border--thin) solid var(--accent-color--secondary);
 }
