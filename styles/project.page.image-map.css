@@ -50,11 +50,9 @@
     .c-image-map { margin: 0 auto; }
 }
 
+/* Prevent image from growing larger than native size */
 .c-image-map__image {
-    /* Prevent image from growing larger than native size */
     max-width: 495px;
-    /* XXX: Stretch height (until we have taller image) */
-    height: 1470px;
 }
 
 /* Size the caption */
@@ -208,10 +206,12 @@
 /* SKIN */
 
 /* SKIN: Typography */
-.c-image-map {
-    font-size: 13px;
-}
 
+@media only screen and (min-width: 992px) {
+    .c-image-map {
+        font-size: 13px;
+    }
+}
 /* SKIN: Spacing */
 @media only screen and (max-width: 991px) {
     .c-image-map__item-caption {
