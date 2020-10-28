@@ -50,9 +50,11 @@
     .c-image-map { margin: 0 auto; }
 }
 
-/* Prevent image from growing larger than native size */
 .c-image-map__image {
+    /* Prevent image from growing larger than native size */
     max-width: 495px;
+    /* XXX: Stretch height (until we have taller image) */
+    height: 1470px;
 }
 
 /* Size the caption */
@@ -75,22 +77,28 @@
     top: 0;
 }
 
+.should-match-magazine #secret-sauce--virtual     { top: 13% }
 #secret-sauce--virtual                            { top: 13% }
 #secret-sauce--virtual .c-image-map__item-toggle { left: 35%; }
 
-#secret-sauce--user-apps                            { top: 25% }
-#secret-sauce--user-apps .c-image-map__item-toggle { left: 35%; }
+.should-match-magazine #secret-sauce--user_apps     { top: 25% }
+#secret-sauce--user_apps                            { top: 21% }
+#secret-sauce--user_apps .c-image-map__item-toggle { left: 35%; }
 
-#secret-sauce--tools                            { top: 38% }
+.should-match-magazine #secret-sauce--tools     { top: 38% }
+#secret-sauce--tools                            { top: 33% }
 #secret-sauce--tools .c-image-map__item-toggle { left: 35%; }
 
-#secret-sauce--comm-apps                             { top: 51% }
-#secret-sauce--comm-apps .c-image-map__item-toggle { left: 9%; }
+.should-match-magazine #secret-sauce--comm_apps      { top: 51% }
+#secret-sauce--comm_apps                             { top: 44% }
+#secret-sauce--comm_apps .c-image-map__item-toggle { left: 9%; }
 
-#secret-sauce--mpi-libs                            { top: 64% }
-#secret-sauce--mpi-libs .c-image-map__item-toggle { left: 9%; }
+.should-match-magazine #secret-sauce--mpi_libs     { top: 64% }
+#secret-sauce--mpi_libs                            { top: 56% }
+#secret-sauce--mpi_libs .c-image-map__item-toggle { left: 9%; }
 
-#secret-sauce--compilers                            { top: 89% }
+.should-match-magazine #secret-sauce--compilers     { top: 89% }
+#secret-sauce--compilers                            { top: 83% }
 #secret-sauce--compilers .c-image-map__item-toggle { left: 9%; }
 
 /* Position captions and toggles per viewport */
@@ -201,7 +209,7 @@
 
 /* SKIN: Typography */
 .c-image-map {
-    font-size: 12px;
+    font-size: 13px;
 }
 
 /* SKIN: Spacing */

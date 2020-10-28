@@ -187,8 +187,10 @@
 
 
 /* SKIN: Placeholder Text */
+/* NOTE: All of these styles query details/summary tags */
 
 /* Decoration only for titles that are NOT collapsing content */
+/* WARNING: This `:not(summary)` selector must remain (but may be simplified) if we do not use details/summary tags */
 .c-image-map__item-title:not(summary),
 details[open] > summary.c-image-map__item-title {
     border-bottom: var(--border--thin) solid var(--accent-color--secondary);
