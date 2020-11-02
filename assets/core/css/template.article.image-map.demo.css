@@ -1,3 +1,7 @@
+/* Replicate CMS Page Layout */
+/* SEE: https://texascale.org/2019/visualizing-science/whats-in-a-node/ */
+/* SEE: https://texascale.org/2020/visualizing-science/frontera-secret-sauce/ */
+
 body {
     display: flex;
     flex-direction: row;
