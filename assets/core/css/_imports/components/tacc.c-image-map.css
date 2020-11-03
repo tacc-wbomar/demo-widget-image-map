@@ -10,7 +10,8 @@
 /* Customize properties */
 .c-image-map,
 [class*="c-image-map--"] {
-    --toggle-shape-size: 20px;
+    --button-shape-size: 60px;
+    --toggle-shape-size: 60px;
     --toggle-offset-from-self: calc( var(--toggle-shape-size) / 2 );
 
     --caption-placeholder-position-x: 2rem;
