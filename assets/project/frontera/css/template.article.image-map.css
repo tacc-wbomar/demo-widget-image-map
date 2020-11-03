@@ -35,7 +35,7 @@
     margin-left: calc( -1 * var(--size) / 2 );
 }
 
-/* Poition focused items atop others */
+/* Position focused items atop others */
 .c-image-map__item:focus,
 .c-image-map__item:focus-within {
     z-index: 1;
