@@ -10,7 +10,8 @@
 /* Customize properties */
 .c-image-map,
 [class*="c-image-map--"] {
-    --toggle-shape-size: 20px;
+    --button-shape-size: 60px;
+    --toggle-shape-size: 60px;
     --toggle-offset-from-self: calc( var(--toggle-shape-size) / 2 );
 
     --caption-placeholder-position-x: 2rem;
@@ -38,13 +39,14 @@
 
 /* Show the description on item click or focus or target */
 /* FAQ: A cLick provides focus on focusable items */
-    /* Click on item toggle should show content */
+/*
+/* Click on item toggle should show content */
 .c-image-map__item-toggle:focus ~ [class*="c-image-map__item-"],
-    /* Click on item content should not hide content */
+/* Click on item content should not hide content */
 .c-image-map__item:focus-within [class*="c-image-map__item-"]:not(.c-image-map__item-toggle),
-    /* Click on another item content should hide targetted item
-    /* CAVEAT: Don't focus on any item, and the atargetted item is shown again */
-    .c-image-map:not(:focus-within) .c-image-map__item:target [class*="c-image-map__item-"]:not(.c-image-map__item-toggle),
+/* Click on another item content should hide targetted item
+/* CAVEAT: Don't focus on any item, and the atargetted item is shown again */
+.c-image-map:not(:focus-within) .c-image-map__item:target [class*="c-image-map__item-"]:not(.c-image-map__item-toggle),
 [class*="c-image-map--"]:not(:focus-within) .c-image-map__item:target [class*="c-image-map__item-"]:not(.c-image-map__item-toggle) {
     visibility: visible;
 }
