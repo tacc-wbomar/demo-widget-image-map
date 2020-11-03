@@ -1,0 +1,16 @@
+/* Minimal styles for navigating pages */
+
+body > nav a {
+    display: block;
+}
+body > nav a::before {
+    display: inline-block;
+    content: "";
+    margin-right: 1ch;
+}
+body > nav a.is-ready::before {
+    content: "✓";
+}
+body > nav a:not(.is-ready)::before {
+    content: "⚠";
+}

@@ -13,6 +13,10 @@ This is a low-tech responsive "image map" widget (image with nodes that highligh
 - The CSS organization makes assumptions about what is shared between instances and projects.
 - This is __not__ a component (native web component, React component, etc)
 
+## Notes
+
+The naming and structure inside `assets/core/` and `assets/project/` mirror those of `taccsite_cms/` and `taccsite_custom/` respectively in repo `cms-site-template`.
+
 ## Known Usages
 
 - https://texascale.org/2019/visualizing-science/whats-in-a-node

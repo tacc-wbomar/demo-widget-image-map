@@ -38,13 +38,14 @@
 
 /* Show the description on item click or focus or target */
 /* FAQ: A cLick provides focus on focusable items */
-    /* Click on item toggle should show content */
+/*
+/* Click on item toggle should show content */
 .c-image-map__item-toggle:focus ~ [class*="c-image-map__item-"],
-    /* Click on item content should not hide content */
+/* Click on item content should not hide content */
 .c-image-map__item:focus-within [class*="c-image-map__item-"]:not(.c-image-map__item-toggle),
-    /* Click on another item content should hide targetted item
-    /* CAVEAT: Don't focus on any item, and the atargetted item is shown again */
-            .c-image-map:not(:focus-within) .c-image-map__item:target [class*="c-image-map__item-"]:not(.c-image-map__item-toggle),
+/* Click on another item content should hide targetted item
+/* CAVEAT: Don't focus on any item, and the atargetted item is shown again */
+.c-image-map:not(:focus-within) .c-image-map__item:target [class*="c-image-map__item-"]:not(.c-image-map__item-toggle),
 [class*="c-image-map--"]:not(:focus-within) .c-image-map__item:target [class*="c-image-map__item-"]:not(.c-image-map__item-toggle) {
     visibility: visible;
 }
@@ -83,6 +84,9 @@ button.c-image-map__item-close {
 .c-image-map__item-caption {
     margin-top: calc( -1 * var(--toggle-offset-from-self) );
 }
+.c-image-map__item::before {
+    margin-top: calc( -1 * var(--toggle-offset-from-self) );
+}
 
 
 
@@ -101,16 +105,16 @@ button.c-image-map__item-close {
 
 
 
-/* STRUCTURE: `--has-caption-counters` */
+/* STRUCTURE: `--has-item-counters` */
 
 /* Assign numbers to markers */
-.c-image-map--has-caption-counters {
+.c-image-map--has-item-counters {
     counter-reset: items;
 }
-.c-image-map--has-caption-counters .c-image-map__item {
+.c-image-map--has-item-counters .c-image-map__item {
     counter-increment: items;
 }
-.c-image-map--has-caption-counters .c-image-map__item-caption::before {
+.c-image-map--has-item-counters .c-image-map__item::before {
     content: counter(items);
 }
 
